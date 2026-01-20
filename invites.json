@@ -1,0 +1,5 @@
+[
+    {"nom":"Michel","heure":"18:30","table":"5","menu":"Végétarien"},
+    {"nom":"Anna","heure":"18:00","table":"3","menu":"Poulet"},
+    {"nom":"Julie","heure":"19:00","table":"1","menu":"Poisson"}
+]
