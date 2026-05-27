@@ -638,6 +638,58 @@ function goBack(){
     .classList.remove("hidden");
 }
 
+
+// LIRE LE NOM DANS L'URL
+
+const params = new URLSearchParams(window.location.search);
+
+const nomInvite = params.get("nom");
+
+// CHARGER LE JSON
+
+fetch("invites.json")
+
+.then(response => response.json())
+
+.then(data => {
+
+    // RECHERCHE INVITÉ
+
+    const invite = data.find(personne =>
+        personne.nom.toLowerCase()
+        === nomInvite.toLowerCase()
+    );
+
+    // SI TROUVÉ
+
+    if(invite){
+
+        document.getElementById("guestName")
+        .innerHTML = invite.nom;
+
+        document.getElementById("guestTable")
+        .innerHTML = "TABLE VIP • " + invite.table;
+
+    }
+
+    // SI PAS TROUVÉ
+
+    else{
+
+        document.body.innerHTML = `
+            <h1 style="
+                color:white;
+                text-align:center;
+                margin-top:100px;
+                font-family:sans-serif;
+            ">
+                Invitation introuvable
+            </h1>
+        `;
+    }
+
+});
+
 </script>
 
 </body>
