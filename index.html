@@ -1,59 +1,645 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <title>Invitation</title>
-    <style>
-        body { font-family: Arial; background:#f2f2f2; text-align:center; padding:50px; }
-        .carte { background:white; padding:20px; border-radius:10px; display:inline-block; box-shadow:0 0 10px rgba(0,0,0,0.1);}
-        table { margin:auto; border-collapse: collapse; width: 80%; margin-top:20px; }
-        th, td { border: 1px solid #0066cc; padding: 10px; }
-        th { background-color: #0066cc; color:white; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Mariage Lila & John</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:'Montserrat', sans-serif;
+
+    background:
+    linear-gradient(rgba(0,0,0,0.80),
+    rgba(0,0,0,0.80)),
+    url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1400')
+    center/cover no-repeat;
+
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:20px;
+
+    overflow-x:hidden;
+
+    position:relative;
+}
+
+/* FLEURS */
+
+.flower{
+    position:absolute;
+    width:220px;
+    opacity:0.15;
+    z-index:1;
+}
+
+.flower1{
+    top:-40px;
+    left:-40px;
+    transform:rotate(-20deg);
+}
+
+.flower2{
+    bottom:-40px;
+    right:-40px;
+    transform:rotate(180deg);
+}
+
+/* FICELLES */
+
+.string{
+    position:absolute;
+    width:2px;
+    background:#d4af37;
+    top:0;
+    z-index:0;
+    opacity:0.35;
+}
+
+.string1{
+    left:20%;
+    height:180px;
+}
+
+.string2{
+    right:20%;
+    height:180px;
+}
+
+/* ALLIANCES */
+
+.rings{
+
+    position:absolute;
+
+    top:120px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    font-size:3rem;
+
+    color:#d4af37;
+
+    z-index:3;
+
+    animation:float 3s ease-in-out infinite;
+}
+
+/* CARTE */
+
+.card{
+
+    width:100%;
+    max-width:820px;
+
+    background:rgba(0,0,0,0.55);
+
+    border:1px solid rgba(212,175,55,0.35);
+
+    border-radius:35px;
+
+    backdrop-filter:blur(10px);
+
+    padding:70px 30px;
+
+    position:relative;
+    z-index:2;
+
+    overflow:hidden;
+
+    box-shadow:
+    0 0 40px rgba(212,175,55,0.12);
+}
+
+/* SECTION */
+
+.section{
+    text-align:center;
+    animation:fade 0.8s ease;
+}
+
+.hidden{
+    display:none;
+}
+
+/* IMAGE MARIÉS */
+
+.couple-image{
+
+    width:180px;
+    height:180px;
+
+    border-radius:50%;
+
+    border:4px solid rgba(212,175,55,0.5);
+
+    margin:0 auto 35px;
+
+    overflow:hidden;
+
+    box-shadow:
+    0 0 30px rgba(212,175,55,0.2);
+}
+
+.couple-image img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+}
+
+/* TITRES */
+
+.small-title{
+
+    color:#d4af37;
+
+    letter-spacing:5px;
+
+    font-size:0.8rem;
+
+    margin-bottom:25px;
+}
+
+h1{
+
+    font-family:'Cormorant Garamond', serif;
+
+    font-size:5rem;
+
+    font-weight:300;
+
+    color:white;
+
+    line-height:1.1;
+}
+
+h1 span{
+
+    color:#d4af37;
+
+    display:block;
+
+    margin:10px 0;
+
+    font-size:3rem;
+}
+
+.line{
+
+    width:140px;
+    height:1px;
+
+    background:#d4af37;
+
+    margin:35px auto;
+}
+
+.message{
+
+    color:#ddd;
+
+    line-height:1.9;
+
+    max-width:550px;
+
+    margin:auto;
+}
+
+/* INVITÉ */
+
+.guest-section{
+
+    margin-top:40px;
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:20px;
+}
+
+.info-box{
+
+    border:1px solid rgba(212,175,55,0.2);
+
+    border-radius:20px;
+
+    padding:25px;
+
+    background:rgba(255,255,255,0.03);
+}
+
+.info-title{
+
+    color:#d4af37;
+
+    letter-spacing:3px;
+
+    font-size:0.75rem;
+
+    margin-bottom:12px;
+}
+
+.info-value{
+
+    color:white;
+
+    font-size:1.2rem;
+
+    line-height:1.8;
+}
+
+/* QR CODE */
+
+.qr-section{
+
+    margin-top:35px;
+
+    border:1px solid rgba(212,175,55,0.2);
+
+    border-radius:25px;
+
+    padding:30px;
+
+    background:rgba(255,255,255,0.03);
+}
+
+.qr-section h3{
+
+    color:#d4af37;
+
+    margin-bottom:20px;
+
+    font-family:'Cormorant Garamond', serif;
+
+    font-size:2rem;
+}
+
+.qr-box{
+
+    width:160px;
+    height:160px;
+
+    margin:auto;
+
+    background:white;
+
+    border-radius:15px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    overflow:hidden;
+}
+
+.qr-box img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+}
+
+/* BOUTON */
+
+.btn{
+
+    display:inline-block;
+
+    margin-top:45px;
+
+    padding:16px 40px;
+
+    border:1px solid #d4af37;
+
+    color:#d4af37;
+
+    text-decoration:none;
+
+    letter-spacing:2px;
+
+    transition:0.4s;
+
+    cursor:pointer;
+
+    background:transparent;
+}
+
+.btn:hover{
+
+    background:#d4af37;
+
+    color:black;
+
+    box-shadow:0 0 25px #d4af37;
+}
+
+/* PROGRAMME */
+
+.program-box{
+
+    margin-top:35px;
+
+    border:1px solid rgba(212,175,55,0.2);
+
+    border-radius:20px;
+
+    padding:25px;
+
+    background:rgba(255,255,255,0.03);
+}
+
+.program-box h3{
+
+    color:#d4af37;
+
+    margin-bottom:15px;
+
+    font-family:'Cormorant Garamond', serif;
+
+    font-size:2rem;
+}
+
+.program-box p{
+
+    color:#ddd;
+
+    line-height:2;
+}
+
+/* ADRESSE */
+
+.address{
+
+    margin-top:40px;
+}
+
+.address h3{
+
+    color:#d4af37;
+
+    margin-bottom:15px;
+
+    font-family:'Cormorant Garamond', serif;
+
+    font-size:2rem;
+}
+
+.address p{
+
+    color:#ddd;
+
+    line-height:2;
+}
+
+/* ANIMATIONS */
+
+@keyframes fade{
+
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+@keyframes float{
+
+    0%{
+        transform:translateX(-50%) translateY(0);
+    }
+
+    50%{
+        transform:translateX(-50%) translateY(-10px);
+    }
+
+    100%{
+        transform:translateX(-50%) translateY(0);
+    }
+
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+    h1{
+        font-size:3.5rem;
+    }
+
+    h1 span{
+        font-size:2rem;
+    }
+
+    .card{
+        padding:50px 20px;
+    }
+
+    .couple-image{
+        width:140px;
+        height:140px;
+    }
+
+    .rings{
+        font-size:2.2rem;
+    }
+
+    .guest-section{
+        grid-template-columns:1fr;
+    }
+
+}
+
+</style>
 </head>
 <body>
 
-<div class="carte">
-    <h1>Invitation</h1>
-    <p>Chère / Cher <span id="nom">Invité</span></p>
-    <p> 25 février 2026<br>Kinshasa</p>
+<!-- FLEURS -->
+<img src="https://pngimg.com/d/rose_PNG669.png" class="flower flower1">
+<img src="https://pngimg.com/d/rose_PNG669.png" class="flower flower2">
 
-    <h2>Détails de votre table</h2>
-    <table>
-        <tr>
-            <th>Nom</th>
-            <th>Heure d'arrivée</th>
-            <th>Numéro de table</th>
-            <th>Menu</th>
-        </tr>
-        <tr>
-            <td id="nom-table">Invité</td>
-            <td id="heure-table">00:00</td>
-            <td id="numero-table">0</td>
-            <td id="menu-table">-</td>
-        </tr>
-    </table>
+<!-- FICELLES -->
+<div class="string string1"></div>
+<div class="string string2"></div>
+
+<!-- ALLIANCES -->
+<div class="rings">
+💍 💍
+</div>
+
+<!-- CARTE -->
+<div class="card">
+
+    <!-- SECTION 1 -->
+    <div class="section" id="section1">
+
+        <!-- IMAGE MARIÉS -->
+        <div class="couple-image">
+
+            <!-- PHOTO DES MARIÉS -->
+            <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?q=80&w=1000">
+
+        </div>
+
+        <p class="small-title">
+            INVITATION AU MARIAGE
+        </p>
+
+        <h1>
+            Lila
+            <span>&</span>
+            John
+        </h1>
+
+        <div class="line"></div>
+
+        <p class="message">
+            Ont l'immense joie de vous inviter
+            à célébrer leur union sacrée
+            entourés de leurs familles et amis.
+        </p>
+
+        <!-- INFOS INVITÉ -->
+        <div class="guest-section">
+
+            <!-- NOM -->
+            <div class="info-box">
+
+                <p class="info-title">
+                    INVITÉ D'HONNEUR
+                </p>
+
+                <p class="info-value">
+                    Monsieur Jean Ilunga
+                </p>
+
+            </div>
+
+            <!-- TABLE -->
+            <div class="info-box">
+
+                <p class="info-title">
+                    TABLE RÉSERVÉE
+                </p>
+
+                <p class="info-value">
+                    TABLE VIP • 07
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- QR CODE -->
+        <div class="qr-section">
+
+            <h3>Votre QR Code</h3>
+
+            <div class="qr-box">
+
+                <!-- QR CODE -->
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=INVITE-VIP-07">
+
+            </div>
+
+        </div>
+
+        <button class="btn" onclick="showDetails()">
+            Voir les détails
+        </button>
+
+    </div>
+
+    <!-- SECTION 2 -->
+    <div class="section hidden" id="section2">
+
+        <p class="small-title">
+            PROGRAMME DU MARIAGE
+        </p>
+
+        <!-- PROGRAMME -->
+        <div class="program-box">
+
+            <h3>Programme</h3>
+
+            <p>
+                14H00 • Cérémonie religieuse<br>
+                16H00 • Séance photo<br>
+                18H00 • Réception & dîner<br>
+                20H00 • Soirée festive
+            </p>
+
+        </div>
+
+        <!-- ADRESSE -->
+        <div class="address">
+
+            <h3>Adresse de la salle</h3>
+
+            <p>
+                Hôtel Royal Palace<br>
+                Boulevard du 30 Juin<br>
+                Kinshasa • RDC
+            </p>
+
+        </div>
+
+        <button class="btn" onclick="goBack()">
+            Retour
+        </button>
+
+    </div>
+
 </div>
 
 <script>
-    // Récupérer le nom depuis l'URL
-    const params = new URLSearchParams(window.location.search);
-    const nomURL = params.get('nom');
 
-    // Charger le fichier JSON
-    fetch('invites.json')
-      .then(response => response.json())
-      .then(data => {
-          // Chercher l'invité correspondant
-          const invite = data.find(i => i.nom.toLowerCase() === (nomURL || "").toLowerCase());
-          if(invite){
-              document.getElementById('nom').textContent = invite.nom;
-              document.getElementById('nom-table').textContent = invite.nom;
-              document.getElementById('heure-table').textContent = invite.heure;
-              document.getElementById('numero-table').textContent = invite.table;
-              document.getElementById('menu-table').textContent = invite.menu;
-          }
-      });
+function showDetails(){
+
+    document.getElementById("section1")
+    .classList.add("hidden");
+
+    document.getElementById("section2")
+    .classList.remove("hidden");
+}
+
+function goBack(){
+
+    document.getElementById("section2")
+    .classList.add("hidden");
+
+    document.getElementById("section1")
+    .classList.remove("hidden");
+}
+
 </script>
 
 </body>
