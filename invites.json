@@ -3,15 +3,15 @@
     {"nom":"Anna","heure":"18:00","table":"3","menu":"Poulet"},
     {"nom":"Julie","heure":"19:00","table":"1","menu":"Poisson"},
     {"nom":"Marielive-lukengo","heure":"19:00","table":"Amis de la mariée","menu":"Poisson"},
-   {"nom":"Sarah-lisangi","table":"Amis de la mariée","menu":"Poisson"},
-{"nom":"Dorcas-salakene","table":"Amis de la mariée","menu":"Poisson" },
+   {"nom":"Sarah-lisangi","heure":"18:30" "table":"Amis de la mariée","menu":"Poisson"},
+{"nom":"Dorcas-salakene","heure":"18:30" "table":"Amis de la mariée","menu":"Poisson" },
 {"nom":"Dorcas-molema","heure":"18:30","Amis de la mariée":"5","menu":"Végétarien"},
-{"nom":"Plamedie-ndaya" ,"table":"Amis de la mariée","menu":"Poisson"  },
+{"nom":"Plamedie-ndaya","heure":"18:30" ,"table":"Amis de la mariée","menu":"Poisson"  },
 {"nom":"Martino-Tshibangu","heure":"18:30","table":"Les amis du mari","menu":"Végétarien"},
   {"nom":"Fiston-bass" ,"heure":"18:30","table":"Les amis du mari","menu":"Végétarien"  },
     {"nom":"Germain-Kawumbu" ,"heure":"18:30","table":"Les amis du mari","menu":"Végétarien" },
     {"nom":"Erick-Kasongo","heure":"18:30","table":"Les amis du mari","menu":"Végétarien"},
     {"nom":"Johncy-Mahunda","heure":"18:30","table":"Les amis du mari","menu":"Végétarien" },
-    {"nom":"Rosette-Matikali"}
+    {"nom":"Rosette-Matikali"},
     {"nom":"dorja-ilunga" ,"heure":"18:30","table":"La famile du mari","menu":"Végétarien"}
 ]
